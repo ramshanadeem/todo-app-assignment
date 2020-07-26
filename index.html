@@ -1,0 +1,206 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        background-image: linear-gradient(120deg,#f6d365, #fda085);
+        color: white;
+        font-family: sans-serif;
+        min-height: 100vh;
+        text-align: center;
+    }
+    
+    .todo .title{
+        margin: 30px 0px;
+         margin-top: 10%;
+         font-weight: bold;
+        
+
+    }
+    .todo h1{
+        text-transform: uppercase;
+        font-weight: 200;
+        font-family: sans-serif;
+        }
+        .todo h1 span{
+            color: yellow;
+        }
+        .todo input{
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            min-width: 45%;
+            background: white;
+            color: black;
+            height: 50px;
+            font-size: 20px;
+            padding-left: 25px;
+            font-family: sans-serif;
+
+        }
+        .todo #done{
+            border: none;
+            padding: 12px 12px;
+            color: white;
+            background-color: transparent;
+            font-size: 20px;
+            border: 1px solid white;
+            transition: all 0.6s ease;
+           
+            -webkit-transition: all 0.6 ease;
+            -moz-transition: all 0.6 ease;
+            -ms-transition: all 0.6 ease;
+            -o-transition: all 0.6 ease;
+            font-weight: bold;
+            cursor: pointer;
+            
+        }
+        
+        .todo #done:hover{
+            background-color: yellow;
+            color: green;
+        }
+        .btn{
+            border: none;
+            padding: 12px 12px;
+            margin-bottom: 10%;
+            color: white;
+            margin-top: 10px;
+            margin-left: 5px;
+            background-color: transparent;
+            font-size: 20px;
+            border: 1px solid white;
+            transition: all 0.6s ease;
+           
+            -webkit-transition: all 0.6 ease;
+            -moz-transition: all 0.6 ease;
+            -ms-transition: all 0.6 ease;
+            -o-transition: all 0.6 ease;
+            font-weight: bold;
+            cursor: pointer;
+
+        }
+        .btn:hover{
+            background-color: yellow;
+            color: green;
+        }
+
+
+        .todo ul{
+            margin-top: 20px;
+            width: 50%;
+            padding: 0;
+            text-align: left;
+            
+            
+        }
+        .todo li{
+            padding: 10px 20px;
+            color: black;
+            list-style: none;
+            text-transform: uppercase;
+            font-weight: 400;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background: white;
+            transition: all 0.6 ease;
+            -webkit-transition: all 0.6 ease;
+            -moz-transition: all 0.6 ease;
+            -ms-transition: all 0.6 ease;
+            -o-transition: all 0.6 ease;
+            border-bottom: 4px solid white;
+        }
+        .todo li > button{
+            cursor: pointer;
+            font-weight: 600;
+            color: #ff0000;
+            float: right;
+            border: none;
+            background: none;
+
+        }
+        .todotask{
+            display: flex;
+            justify-content: center;
+            font-size: 18px ;
+           
+        }
+        
+        .todo .done{
+            background-color: #f5ee33;
+            color: black;
+            cursor: pointer;
+            text-decoration: line-through;
+
+        }
+        .todo .delete{
+            display: none;
+
+        } 
+        
+        .editbutton{
+
+            border: none;
+            padding: 12px 12px;
+            color: white;
+            margin-top: 10px;
+            margin-left: 5px;
+            margin-bottom: 2%;
+            background-color: transparent;
+            font-size: 20px;
+            border: 1px solid white;
+            transition: all 0.6s ease;
+           
+            -webkit-transition: all 0.6 ease;
+            -moz-transition: all 0.6 ease;
+            -ms-transition: all 0.6 ease;
+            -o-transition: all 0.6 ease;
+            font-weight: bold;
+            cursor: pointer;
+            
+        }
+        .editbutton:hover{
+            background-color: yellow;
+            color: green;
+        }
+</style>
+<body>
+   <div class="todo">
+       <h1 class="title">Welcome to my <span>To Do List </span></h1>
+      
+           <!-- <i class="fas fa-redo-alt"></i> -->
+       
+       <input id="todo-item" type="text"  placeholder="Add Items...">
+       <button onclick="addTodo()" id="done">Submit</button>
+       <button onclick="deleteAll()" id="done">
+     <i  class="fas fa-redo-alt"></i> 
+    </button>
+    </div>
+
+
+     <div class="listitems todotask">
+     <ul id="list">
+     
+     </ul>
+      </div>
+    
+
+</body>
+<script src="app.js"></script>
+</html>
